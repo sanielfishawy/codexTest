@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+This project requires Node.js 22.x. You can use the included `.nvmrc` or `.node-version` file to align your local Node version.
+
 First, run the development server:
 
 ```bash
