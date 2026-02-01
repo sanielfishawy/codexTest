@@ -55,6 +55,14 @@ export default function Home() {
     setHabits((current) => current.filter((habit) => habit.id !== id));
   };
 
+  const resetHabits = () => {
+    setHabits((current) =>
+      current.map((habit) =>
+        habit.completed ? { ...habit, completed: false } : habit,
+      ),
+    );
+  };
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100">
       <main className="mx-auto flex w-full max-w-3xl flex-col gap-10 px-6 py-16">
@@ -80,9 +88,18 @@ export default function Home() {
                   {completedCount}/{habits.length} habits completed
                 </p>
               </div>
-              <span className="rounded-full bg-slate-800 px-4 py-2 text-sm font-medium text-slate-200">
-                {Math.round(progress * 100)}% complete
-              </span>
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="rounded-full bg-slate-800 px-4 py-2 text-sm font-medium text-slate-200">
+                  {Math.round(progress * 100)}% complete
+                </span>
+                <button
+                  type="button"
+                  onClick={resetHabits}
+                  className="rounded-full bg-emerald-400 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300"
+                >
+                  Reset today
+                </button>
+              </div>
             </div>
             <div className="mt-4 h-2 w-full overflow-hidden rounded-full bg-slate-800">
               <div
